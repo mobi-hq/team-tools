@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{RXBc:function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),o=t.n(a),l=t("Wbzz"),c=t("Bl7J"),d=t("vrFN");n.default=function(){return o.a.createElement(c.a,null,o.a.createElement(d.a,{title:"Index"}),o.a.createElement(l.Link,{to:"/download-headoffice-menu-to-json/"},"download-headoffice-menu-to-json"),o.a.createElement("br",null),o.a.createElement(l.Link,{to:"/diff-json-menus/"},"diff-json-menus"))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-d63539a930d16d53f9a3.js.map
