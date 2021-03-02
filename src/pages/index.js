@@ -13,6 +13,8 @@ const IndexPage = () => (
         </Link>
         <br />
         <Link to="/diff-json-menus/">diff-json-menus</Link>
+        <br />
+        <Link to="/dooliz-menu-export-check/">dooliz-menu-export-check</Link>
     </Layout>
 );
 

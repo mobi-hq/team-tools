@@ -4,6 +4,7 @@ module.exports = {
         description: `Set of small tools to help the team workflow`,
         author: `@citolen`,
     },
+    pathPrefix: '/team-tools',
     plugins: [
         `gatsby-plugin-react-helmet`,
         {
@@ -31,8 +32,8 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
-                host: 'https://www.example.com',
-                sitemap: 'https://www.example.com/sitemap.xml',
+                host: 'https://mobi2go.github.io/',
+                sitemap: 'https://mobi2go.github.io/sitemap.xml',
                 policy: [{ userAgent: '*', disallow: '/' }],
             },
         },
