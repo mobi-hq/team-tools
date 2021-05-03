@@ -4,6 +4,15 @@ import SEO from '../components/seo';
 
 import styles from './dooliz-menu-export-check.module.less';
 
+const parseMenuIdFromBackendName = (name) => {
+    const result = /\[(?<menu_id>\d+)\].*/.exec(name);
+
+    if (result && result.groups && result.groups.menu_id) {
+        return result.groups.menu_id;
+    }
+    return null;
+};
+
 const detectErrors = (menu_content) => {
     const content = JSON.parse(menu_content);
     const errors = [];
@@ -135,10 +144,12 @@ const detectErrors = (menu_content) => {
                 item_type: 'product',
                 item: product,
             };
-            if (product.plu in plus) {
-                plus[product.plu].push(record);
+            const menu_id = parseMenuIdFromBackendName(product.backend_name);
+            const id = `${menu_id}_${product.plu}`;
+            if (id in plus) {
+                plus[id].push(record);
             } else {
-                plus[product.plu] = [record];
+                plus[id] = [record];
             }
         }
     });
@@ -173,10 +184,12 @@ const detectErrors = (menu_content) => {
                 item_type: 'modifier',
                 item: modifier,
             };
-            if (modifier.plu in plus) {
-                plus[modifier.plu].push(record);
+            const menu_id = parseMenuIdFromBackendName(modifier.backend_name);
+            const id = `${menu_id}_${modifier.plu}`;
+            if (id in plus) {
+                plus[id].push(record);
             } else {
-                plus[modifier.plu] = [record];
+                plus[id] = [record];
             }
         }
     });
@@ -189,6 +202,7 @@ const detectErrors = (menu_content) => {
         }
 
         errors.push({
+            id: records[0].item.backend_name,
             type: 'DUPLICATE_PLU',
             records,
         });
